@@ -13,14 +13,18 @@ body {
 .form-container {
     width: 320px;
     height: 320px;
-    display: inline-block;
-    border: 2px solid aquamarine;
+    padding: 50px;
+    margin: 0 auto;
+    background-color: rgb(222, 211, 211);
+    border: 2px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
 
 .form-container input {
     width: 100%;
     margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.8);
 }
 
 .form-container label {
