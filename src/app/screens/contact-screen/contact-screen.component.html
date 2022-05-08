@@ -1,0 +1,43 @@
+<app-navbar></app-navbar>
+
+<div class="card w-50 mx-auto my-4 p-3">
+    <div class="row">
+        <div class="fs-1 text-center my-3" style="color: #581B98;">
+            <strong>Contáctanos</strong>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6 offset-3">
+            <p class="text-center">
+                Si tienes alguna duda con nuestro servicio, o te interesaría que tu 
+                institución fuera parte de este, por favor rellena el formulario.
+            </p>
+        </div>
+    </div>
+    
+    <form class="row">
+        <div class="col-6 mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="name">
+        </div>
+        <div class="col-6 mb-3">
+            <label for="surname" class="form-label">Apellido</label>
+            <input type="text" class="form-control" id="surname">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email</label>
+          <input type="email" class="form-control" id="exampleInputEmail1">
+        </div>
+        <div class="col-12 mb-3">
+            <label for="phone" class="form-label">Número telefónico</label>
+            <input type="tel" id="phone" name="phone" placeholder="949891010" class="form-control" pattern="[0-9]{9}" required>
+        </div>
+        <div class="col-12 mb-3">
+            <label for="exampleFormControlTextarea1">Mensaje</label>
+            <textarea class="form-control" id="textArea" rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+</div>
+
+<app-footer></app-footer>
