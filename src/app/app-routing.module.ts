@@ -13,6 +13,7 @@ import { UsersComponent } from './screens/users/users.component';
 import { DashboardTeacherComponent } from './screens/dashboard-teacher/dashboard-teacher.component';
 import { TeacherCoursesComponent } from './screens/teacher-courses/teacher-courses.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
+import { TeacherNoticesComponent } from './screens/teacher-notices/teacher-notices.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -28,7 +29,8 @@ const routes: Routes = [
   { path: 'admin/users', component: UsersComponent },
   { path: 'teacher/dashboard', component: DashboardTeacherComponent },
   { path: 'teacher/courses', component: TeacherCoursesComponent },
-  { path: 'teacher/course', component: TeacherCourseComponent }
+  { path: 'teacher/course', component: TeacherCourseComponent },
+  { path: 'teacher/notices', component: TeacherNoticesComponent }
 ];
 
 @NgModule({

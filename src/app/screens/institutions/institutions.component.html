@@ -18,18 +18,12 @@
                     <th scope="col">Nombre administrador</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let institution of institutions">
                   <tr>
-                    <th scope="row">1</th>
-                    <td>Colegio X</td>
-                    <td>15.552.132-1</td>
-                    <td>Felipe Diaz</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>Colegio Y</td>
-                    <td>10.375.514-K</td>
-                    <td>Roberto Sepulveda</td>
+                    <th scope="row">{{institution.id}}</th>
+                    <td>{{institution.name}}</td>
+                    <td>{{institution.admin_rut}}</td>
+                    <td>{{institution.admin_name}}</td>
                   </tr>
                 </tbody>
               </table>
