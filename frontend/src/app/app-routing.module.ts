@@ -14,6 +14,7 @@ import { DashboardTeacherComponent } from './screens/dashboard-teacher/dashboard
 import { TeacherCoursesComponent } from './screens/teacher-courses/teacher-courses.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { TeacherNoticesComponent } from './screens/teacher-notices/teacher-notices.component';
+import { AuthGuard } from './guards/auth-guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,16 +22,66 @@ const routes: Routes = [
   { path: 'about', component: AboutScreenComponent },
   { path: 'contact', component: ContactScreenComponent },
   { path: 'login', component: LoginScreenComponent },
-  { path: 'student/dashboard', component: HomepageStudentComponent },
-  { path: 'student/courses', component: CoursesScreenComponent },
-  { path: 'student/schedules', component: SchedulesComponent },
-  { path: 'admin/dashboard', component: DashboardAdminComponent },
-  { path: 'admin/institutions', component: InstitutionsComponent },
-  { path: 'admin/users', component: UsersComponent },
-  { path: 'teacher/dashboard', component: DashboardTeacherComponent },
-  { path: 'teacher/courses', component: TeacherCoursesComponent },
-  { path: 'teacher/course', component: TeacherCourseComponent },
-  { path: 'teacher/notices', component: TeacherNoticesComponent }
+  { 
+    path: 'admin/dashboard', 
+    component: DashboardAdminComponent, 
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
+  { 
+    path: 'admin/institutions', 
+    component: InstitutionsComponent,
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
+  { 
+    path: 'admin/users', 
+    component: UsersComponent,
+    canActivate: [AuthGuard],
+    data: { role: 0 }
+  },
+  { 
+    path: 'teacher/dashboard', 
+    component: DashboardTeacherComponent, 
+    canActivate: [AuthGuard],
+    data: { role: 2 }
+  },
+  { 
+    path: 'teacher/courses', 
+    component: TeacherCoursesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 2 }
+  },
+  { 
+    path: 'teacher/course', 
+    component: TeacherCourseComponent,
+    canActivate: [AuthGuard],
+    data: { role: 2 }
+  },
+  { 
+    path: 'teacher/notices', 
+    component: TeacherNoticesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 2 }
+  },  
+  { 
+    path: 'student/dashboard', 
+    component: HomepageStudentComponent,
+    canActivate: [AuthGuard],
+    data: { role: 3 }
+  },
+  { 
+    path: 'student/courses', 
+    component: CoursesScreenComponent,
+    canActivate: [AuthGuard],
+    data: { role: 3 }
+  },
+  { 
+    path: 'student/schedules', 
+    component: SchedulesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 3 }
+  }
 ];
 
 @NgModule({

@@ -8,18 +8,18 @@
     <form class="row">
         <div class="mt-4 mb-4">
             <label for="exampleInputEmail1" class="form-label">RUT</label>
-            <input type="text" class="form-control" id="rut">
+            <input [(ngModel)]="userRut" type="text" class="form-control" name="rut">
           </div>
           <div class="mb-4">
             <label for="exampleInputEmail1" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password">
+            <input [(ngModel)]="userPassword" type="password" class="form-control" name="password">
           </div>
           <div class="checkbox mb-5 mt-0">
             <label>
               <input type="checkbox"> Recordarme
             </label>
           </div>
-          <button type="submit" class="btn btn-primary">Enviar</button>
+          <button type="button" class="btn btn-primary" (click)="login(userRut, userPassword)">Enviar</button>
     </form>
 </div>
 
