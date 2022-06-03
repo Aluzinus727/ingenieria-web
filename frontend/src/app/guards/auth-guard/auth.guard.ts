@@ -24,7 +24,6 @@ export class AuthGuard implements CanActivate {
       if (cookieExists) {
         const res = this.loginService.verifyRole( {token: this.cookieService.get('accessToken'), role: role} )
         res.subscribe((response: any) => {
-          console.log(response.auth)
           if (!response.auth) {
             this.router.navigate(['/login'])
           }

@@ -12,42 +12,47 @@ export class StudentService {
       nextEvaluations: [
         {
           date: "10 MAYO",
-          subject: "FÍSICA ELECTROMAGNETISMO",
+          course: "FÍSICA ELECTROMAGNETISMO",
           evaluation_type: "PRUEBA"
-    
         },
         {
           date: "12 MAYO",
-          subject: "HISTORIA Y GEOGRAFÍA",
+          course: "HISTORIA Y GEOGRAFÍA",
           evaluation_type: "PRESENTACIÓN ORAL"
         },
         {
           date: "12 MAYO",
-          subject: "MATEMÁTICAS",
+          course: "MATEMÁTICAS",
           evaluation_type: "PRUEBA"
         }
       ]
     }
   ]
 
-  notices = [
+  notifications = [
     {
-      rut: "17200300", // En la base de datos se buscaría idealmente por el RUT del estudiante, retorna notices.
-      notices: [
+      rut: "17200300",
+      notifications: [
         {
+          id: 0,
           date: "2 MAYO",
           author: "SISTEMA",
-          issue: "Calificaciones disponibles"
+          issue: "Calificaciones disponibles",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
+          id: 1,
           date: "3 MAYO",
           author: "Juan Diaz",
-          issue: "Inasistencia"
+          issue: "Inasistencia",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         },
         {
+          id: 2,
           date: "3 MAYO",
           author: "Maria Pérez",
-          issue: "Mal comportamiento"
+          issue: "Mal comportamiento",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
       ]
     }
@@ -237,35 +242,6 @@ export class StudentService {
     }
   ]
 
-  notifications = [
-    {
-      rut: "17200300",
-      notifications: [
-        {
-          id: 0,
-          date: "2 MAYO",
-          author: "SISTEMA",
-          issue: "Calificaciones disponibles",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 1,
-          date: "3 MAYO",
-          author: "Juan Diaz",
-          issue: "Inasistencia",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        },
-        {
-          id: 2,
-          date: "3 MAYO",
-          author: "Maria Pérez",
-          issue: "Mal comportamiento",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-        }
-      ]
-    }
-  ]
-
   constructor(
     private webRequest: WebRequestService
   ) { }
@@ -273,11 +249,11 @@ export class StudentService {
   getDashboardInfo(payload: any) {
     // Deberia obtener estos datos desde la base de datos, por eso se importa el servicio de WebRequest
     const evaluations = this.nextEvaluations.find(e => e.rut === payload['rut'])
-    const notices = this.notices.find(n => n.rut === payload['rut'])
+    const notifications = this.notifications.find(n => n.rut === payload['rut'])
 
     return {
       evaluations,
-      notices
+      notifications
     }
   } 
 

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { StudentService } from 'src/app/services/student-service/student-service.service';
+import { NextEvaluations } from 'src/app/models/evaluations.model';
+import { Notification } from 'src/app/models/notifications.model';
 
 import jwt_decode from 'jwt-decode';
 
@@ -17,15 +19,15 @@ export class HomepageStudentComponent implements OnInit {
     course: ''
   }
 
-  evaluations: { date: string, subject: string, evaluation_type: string }[]
-  notices: { date: string, author: string, issue: string }[]
+  evaluations: NextEvaluations[]
+  notifications: Notification[]
 
   constructor(
     private cookieService: CookieService,
     private studentService: StudentService
   ) { 
     this.evaluations = []
-    this.notices = []
+    this.notifications = []
   }
 
   ngOnInit(): void {
@@ -43,8 +45,9 @@ export class HomepageStudentComponent implements OnInit {
       this.evaluations = data.evaluations.nextEvaluations
     }
 
-    if (data.notices) {
-      this.notices = data.notices.notices
+    if (data.notifications) {
+      const notifications = data.notifications.notifications.map(({content, ...notification}) => notification)
+      this.notifications = notifications
     }
 
   }

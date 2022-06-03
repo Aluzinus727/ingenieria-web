@@ -19,7 +19,7 @@
                     <tbody>
                       <tr *ngFor="let evaluation of evaluations">
                         <td>{{evaluation.date}}</td>
-                        <td>{{evaluation.subject}}</td>
+                        <td>{{evaluation.course}}</td>
                         <td>{{evaluation.evaluation_type}}</td>
                       </tr>
                     </tbody>
@@ -36,10 +36,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr *ngFor="let notice of notices">
-                        <td>{{notice.date}}</td>
-                        <td>{{notice.author}}</td>
-                        <td>{{notice.issue}}</td>
+                      <tr *ngFor="let notification of notifications">
+                        <td>{{notification.date}}</td>
+                        <td>{{notification.author}}</td>
+                        <td>{{notification.issue}}</td>
                       </tr>
                     </tbody>
                 </table>
