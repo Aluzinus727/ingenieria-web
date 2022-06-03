@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-3">
+            <app-sidebar 
+                [props]="props">
+            </app-sidebar>
+        </div>
+        <main class="col-9 mt-5 mt-md-1">
+            <div class="h1">Notificaciones</div>
+            <div class="accordion" id="accordionNotifications">
+                <div *ngFor="let notification of notifications" class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button [attr.data-bs-target]="'#notification-'+notification.id" class="accordion-button collapsed" type="button" data-bs-toggle="collapse" aria-expanded="false" aria-controls="collapseThree">
+                      <strong>
+                        {{notification.issue}} | {{notification.author}} | {{notification.date}}
+                      </strong>
+                    </button>
+                  </h2>
+                  <div [attr.id]="'notification-'+notification.id" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionNotifications">
+                    <div class="accordion-body">
+                      {{notification.content}}
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </main>
+    </div>
+</div>

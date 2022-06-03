@@ -237,6 +237,35 @@ export class StudentService {
     }
   ]
 
+  notifications = [
+    {
+      rut: "17200300",
+      notifications: [
+        {
+          id: 0,
+          date: "2 MAYO",
+          author: "SISTEMA",
+          issue: "Calificaciones disponibles",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          id: 1,
+          date: "3 MAYO",
+          author: "Juan Diaz",
+          issue: "Inasistencia",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        },
+        {
+          id: 2,
+          date: "3 MAYO",
+          author: "Maria Pérez",
+          issue: "Mal comportamiento",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+        }
+      ]
+    }
+  ]
+
   constructor(
     private webRequest: WebRequestService
   ) { }
@@ -267,6 +296,14 @@ export class StudentService {
 
     return {
       schedules: schedules?.schedules
+    }
+  }
+
+  getNotifications(payload: any) {
+    const notifications = this.notifications.find(n => n.rut === payload['rut'])
+
+    return {
+      notifications
     }
   }
 }

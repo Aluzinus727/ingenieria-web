@@ -24,6 +24,7 @@ import { SidebarTeacherComponent } from './components/sidebar-teacher/sidebar-te
 import { TeacherCoursesComponent } from './screens/teacher-courses/teacher-courses.component';
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { TeacherNoticesComponent } from './screens/teacher-notices/teacher-notices.component';
+import { NotificationsStudentComponent } from './screens/notifications-student/notifications-student.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { TeacherNoticesComponent } from './screens/teacher-notices/teacher-notic
     TeacherCoursesComponent,
     TeacherCourseComponent,
     TeacherNoticesComponent,
+    NotificationsStudentComponent,
   ],
   imports: [
     BrowserModule,

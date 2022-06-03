@@ -15,6 +15,7 @@ import { TeacherCoursesComponent } from './screens/teacher-courses/teacher-cours
 import { TeacherCourseComponent } from './screens/teacher-course/teacher-course.component';
 import { TeacherNoticesComponent } from './screens/teacher-notices/teacher-notices.component';
 import { AuthGuard } from './guards/auth-guard/auth.guard';
+import { NotificationsStudentComponent } from './screens/notifications-student/notifications-student.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -79,6 +80,12 @@ const routes: Routes = [
   { 
     path: 'student/schedules', 
     component: SchedulesComponent,
+    canActivate: [AuthGuard],
+    data: { role: 3 }
+  },
+  {
+    path: 'student/notifications',
+    component: NotificationsStudentComponent,
     canActivate: [AuthGuard],
     data: { role: 3 }
   }
