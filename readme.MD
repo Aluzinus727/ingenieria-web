@@ -7,6 +7,15 @@ Proyecto para la asignatura de Ingeniería Web ICI4240-1
 
 - Angelo Alvear Tapia
 
+# 2. Credenciales dentro de la aplicación
+
+| RUT      | Contraseña | Tipo de usuario      |
+|----------|------------|----------------------|
+| 17200300 | qwerty     | Alumno               |
+| 20100200 | 666        | Profesor             |
+| 12345678 | 321        | Admin de institución |
+| 19776112 | 123        | Admin total          |
+
 # 2. Interfaces
 
 Las interfaces de usuarios fueron modeladas antes de ser pasadas a css/html utilizando Figma. 

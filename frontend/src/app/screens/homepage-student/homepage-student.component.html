@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-3">
-            <app-sidebar></app-sidebar>
+            <app-sidebar 
+              [props]="props">
+            </app-sidebar>
         </div>
         <main class="col-9 mt-5 mt-md-1">
             <div class="row justify-content-start">
@@ -15,20 +17,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>10 MAYO</td>
-                        <td>FÍSICA ELECTROMAGNETISMO</td>
-                        <td>PRUEBA</td>
-                      </tr>
-                      <tr>
-                        <td>12 MAYO</td>
-                        <td>HISTORIA Y GEOGRAFÍA</td>
-                        <td>PRESENTACIÓN ORAL</td>
-                      </tr>
-                      <tr>
-                        <td>12 MAYO</td>
-                        <td>MATEMÁTICAS</td>
-                        <td>PRUEBA</td>
+                      <tr *ngFor="let evaluation of evaluations">
+                        <td>{{evaluation.date}}</td>
+                        <td>{{evaluation.subject}}</td>
+                        <td>{{evaluation.evaluation_type}}</td>
                       </tr>
                     </tbody>
                 </table>
@@ -44,20 +36,10 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>2 MAYO</td>
-                        <td>SISTEMA</td>
-                        <td>Calificaciones disponibles</td>
-                      </tr>
-                      <tr>
-                        <td>3 MAYO</td>
-                        <td>Juan Diaz</td>
-                        <td>Inasistencia</td>
-                      </tr>
-                      <tr>
-                        <td>3 MAYO</td>
-                        <td>Maria Pérez</td>
-                        <td>Mal comportamiento</td>
+                      <tr *ngFor="let notice of notices">
+                        <td>{{notice.date}}</td>
+                        <td>{{notice.author}}</td>
+                        <td>{{notice.issue}}</td>
                       </tr>
                     </tbody>
                 </table>

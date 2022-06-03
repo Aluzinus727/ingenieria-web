@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-3">
-            <app-sidebar></app-sidebar>
+            <app-sidebar 
+              [props]="props">
+            </app-sidebar>
         </div>
         <div class="col-9">
             <table class="table">
@@ -14,45 +16,9 @@
                     <th>Viernes</th>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td style="background-color: lightblue;"><strong>Matemáticas</strong></td>
-                        <td style="background-color:cornsilk;"><strong>Educación física</strong></td>
-                        <td style="background-color: lightblue;"><strong>Matemáticas</strong></td>
-                        <td style="background-color:darkorchid;"><strong>Religión</strong></td>
-                        <td style="background-color: lightblue;"><strong>Matemáticas</strong></td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td style="background-color: red;"><strong>Lenguaje</strong></td>
-                        <td style="background-color:deeppink;"><strong>Tecnología</strong></td>
-                        <td style="background-color:darkcyan;"><strong>Inglés</strong></td>
-                        <td style="background-color: red;"><strong>Lenguaje</strong></td>   
-                        <td style="background-color:cornsilk;"><strong>Educación física</strong></td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td style="background-color:darkcyan;"><strong>Inglés</strong></td>
-                        <td style="background-color: lightblue;"><strong>Matemáticas</strong></td>
-                        <td style="background-color:green;"><strong>Ciencias</strong></td>
-                        <td style="background-color: red;"><strong>Lenguaje</strong></td>
-                        <td style="background-color:darkseagreen;"><strong>Historia</strong></td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td style="background-color:darkseagreen;"><strong>Historia</strong></td>
-                        <td style="background-color:green;"><strong>Ciencias</strong></td>
-                        <td style="background-color: whitesmoke;;"><strong>Filosofía</strong></td>
-                        <td style="background-color:darkcyan;"><strong>Inglés</strong></td>
-                        <td style="background-color: red;"><strong>Lenguaje</strong></td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td style="background-color:green;"><strong>Ciencias</strong></td>
-                        <td style="background-color:green;"><strong>Ciencias</strong></td>
-                        <td style="background-color: whitesmoke;;"><strong>Filosofía</strong></td>
-                        <td style="background-color:brown;"><strong>Consejo de curso</strong></td>
-                        <td style="background-color:darkseagreen;"><strong>Historia</strong></td>
+                    <tr *ngFor="let schedule of schedules">
+                        <td>{{schedule.block}}</td>
+                        <td *ngFor="let sch of schedule.schedules" [style.backgroundColor]="sch.color"><strong>{{sch.course}}</strong></td>
                     </tr>
                 </tbody>
             </table>
