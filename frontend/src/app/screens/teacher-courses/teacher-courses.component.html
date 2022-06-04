@@ -1,45 +1,23 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-3">
-          <app-sidebar-teacher></app-sidebar-teacher>
+          <app-sidebar-teacher
+            [props]="props">
+          </app-sidebar-teacher>
         </div>
         <div class="col-9 mt-4 d-flex flex-row">
-            <div class="card mx-5 text-center" style="width: 18rem;">
-                <img src="assets/primary-school.svg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Inglés</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">1° Básico</h6>
-                  <p class="card-body">
-                    <strong>Promedio</strong><br>
-                    <span class="text-success">5.3</span>
-                  </p>
-                  <a href="teacher/course" class="btn btn-primary">Ver detalles</a>
-                </div>
+          <div *ngFor="let course of courses" class="card mx-5 text-center" style="width: 18rem;">
+            <img [attr.src]="course.img_path" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title text-center">{{course.course}}</h5>
+              <h6 class="card-subtitle mb-2 text-muted">{{course.grade}}</h6>
+              <p class="card-body">
+                <strong>Promedio</strong><br>
+                <span [ngClass]="course.average >= 4.0 ? 'text-success' : 'text-danger'">{{course.average}}</span>
+              </p>
+              <a href="teacher/course" class="btn btn-primary">Ver detalles</a>
             </div>
-            <div class="card mx-5 text-center" style="width: 18rem;">
-                <img src="assets/secondary-school.svg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title">Inglés</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">3° Medio</h6>
-                  <p class="card-body">
-                    <strong>Promedio</strong><br>
-                    <span class="text-success">6.5</span>
-                  </p>
-                  <a href="#" class="btn btn-primary">Ver detalles</a>
-                </div>
-            </div>
-            <div class="card mx-5 text-center" style="width: 18rem;">
-                <img src="assets/secondary-school.svg" class="card-img-top" alt="...">
-                <div class="card-body">
-                  <h5 class="card-title text-center">Inglés</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">4° Medio</h6>
-                  <p class="card-body"> 
-                      <strong>Promedio</strong><br>
-                      <span class="text-danger">3.4</span>
-                  </p>
-                  <a href="#" class="btn btn-primary text-center">Ver detalles</a>
-                </div>
-            </div>
+          </div>
         </div>
     </div>
 </div>>

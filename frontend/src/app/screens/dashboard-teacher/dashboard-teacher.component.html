@@ -1,7 +1,9 @@
 <div class="container-fluid">
     <div class="row flex-nowrap">
         <div class="col-3">
-            <app-sidebar-teacher></app-sidebar-teacher>
+            <app-sidebar-teacher 
+                [props]="props">
+            </app-sidebar-teacher>
         </div>
         <div class="col-9">
             <div class="h2">Listado de cursos</div>
@@ -14,26 +16,10 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            1° Básico
-                        </td>
-                        <td>Inglés</td>
-                        <td>39</td>
-                    </tr>
-                    <tr>
-                        <td> 
-                            2° Básico
-                        </td>
-                        <td>Inglés</td>
-                        <td>35</td>
-                    </tr>
-                    <tr>
-                        <td> 
-                            3° Básico
-                        </td>
-                        <td>Inglés</td>
-                        <td>42</td>
+                    <tr *ngFor="let course of courses">
+                        <td>{{course.grade}}</td>
+                        <td>{{course.course}}</td>
+                        <td>{{course.students}}</td>
                     </tr>
                 </tbody>
             </table>
@@ -50,24 +36,12 @@
                       </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <td>10 MAYO</td>
-                        <td>3° MEDIO</td>
-                        <td>INGLÉS</td>
-                        <td>PRUEBA</td>
-                      </tr>
-                      <tr>
-                        <td>10 MAYO</td>
-                        <td>2° MEDIO</td>
-                        <td>INGLÉS</td>
-                        <td>PRESENTACIÓN ORAL</td>
-                      </tr>
-                      <tr>
-                        <td>12 MAYO</td>
-                        <td>4° MEDIO</td>
-                        <td>INGLÉS</td>
-                        <td>PRUEBA</td>
-                      </tr>
+                        <tr *ngFor="let evaluation of nextEvaluations">
+                            <td>{{evaluation.date}}</td>
+                            <td>{{evaluation.grade}}</td>
+                            <td>{{evaluation.course}}</td>
+                            <td>{{evaluation.evaluation_type}}</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>

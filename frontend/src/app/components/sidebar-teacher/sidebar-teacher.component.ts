@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar-teacher',
@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar-teacher.component.sass']
 })
 export class SidebarTeacherComponent implements OnInit {
+
+  @Input()
+  props = {
+    first_name: '',
+    last_name: '',
+  }
 
   constructor() { }
 

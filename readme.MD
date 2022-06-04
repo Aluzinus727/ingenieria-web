@@ -1,13 +1,15 @@
 
 # Ingeniería Web
 
-Proyecto para la asignatura de Ingeniería Web ICI4240-1
+Proyecto para la asignatura de Ingeniería Web ICI4240-1 de Angelo Alvear Tapia.
 
-# 1. Integrantes
+# 1. Uso de la aplicación
 
-- Angelo Alvear Tapia
+Para el correcto functionamiento de la aplicación se necesitar inicialiar tanto el frontend como el backend. Para inicializar el frontend en Angular se debe escribir ng serve en la terminal desde el directorio de frontend, mientras que para lanzar el servidor de backend se debe escribir en la terminal npm run dev, desde el directorio backend. 
 
-# 2. Credenciales dentro de la aplicación
+# 1.1 Credenciales dentro de la aplicación
+
+Con estas credenciales se podrá hacer ingreso a la aplicación mediante el login. Cabe destacar que no funcionará si el backend no está activo.
 
 | RUT      | Contraseña | Tipo de usuario      |
 |----------|------------|----------------------|
