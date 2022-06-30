@@ -1,3 +1,5 @@
+import { RowDataPacket } from "mysql2"
+
 export enum Role {
     Admin = 0,
     LocalAdmin = 1,
@@ -13,11 +15,12 @@ export enum Role {
 //     password: string
 // }
 
-export interface User {
-    rut: string
-    first_name: string,
+export interface User extends RowDataPacket {
+    rut: string,
+    name: string,
     last_name: string,
-    password: string
+    password: string,
+    role: string
 }
 
 export type SafeUser = Omit<User, 'password'>

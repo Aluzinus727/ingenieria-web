@@ -27,67 +27,67 @@ const routes: Routes = [
     path: 'admin/dashboard', 
     component: DashboardAdminComponent, 
     canActivate: [AuthGuard],
-    data: { role: 0 }
+    data: { role: '0' }
   },
   { 
     path: 'admin/institutions', 
     component: InstitutionsComponent,
     canActivate: [AuthGuard],
-    data: { role: 0 }
+    data: { role: '0' }
   },
   { 
     path: 'admin/users', 
     component: UsersComponent,
     canActivate: [AuthGuard],
-    data: { role: 0 }
+    data: { role: '0' }
   },
   { 
     path: 'teacher/dashboard', 
     component: DashboardTeacherComponent, 
     canActivate: [AuthGuard],
-    data: { role: 2 }
+    data: { role: '2' }
   },
   { 
     path: 'teacher/courses', 
     component: TeacherCoursesComponent,
     canActivate: [AuthGuard],
-    data: { role: 2 }
+    data: { role: '2' }
   },
   { 
     path: 'teacher/course', 
     component: TeacherCourseComponent,
     canActivate: [AuthGuard],
-    data: { role: 2 }
+    data: { role: '2' }
   },
   { 
     path: 'teacher/notices', 
     component: TeacherNoticesComponent,
     canActivate: [AuthGuard],
-    data: { role: 2 }
+    data: { role: '2' }
   },  
   { 
     path: 'student/dashboard', 
     component: HomepageStudentComponent,
     canActivate: [AuthGuard],
-    data: { role: 3 }
+    data: { role: '3' }
   },
   { 
     path: 'student/courses', 
     component: CoursesScreenComponent,
     canActivate: [AuthGuard],
-    data: { role: 3 }
+    data: { role: '3' }
   },
   { 
     path: 'student/schedules', 
     component: SchedulesComponent,
     canActivate: [AuthGuard],
-    data: { role: 3 }
+    data: { role: '3' }
   },
   {
     path: 'student/notifications',
     component: NotificationsStudentComponent,
     canActivate: [AuthGuard],
-    data: { role: 3 }
+    data: { role: '3' }
   }
 ];
 
