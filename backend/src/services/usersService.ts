@@ -9,7 +9,7 @@ const ACCESS_TOKEN = '46899820d7d4ecc1fdddd2e15721734dbbf6a28faaec0bc565c8a7530d
 export const getUsers = async (_req: any, res: any) => {
     // TODO: Verificar jwt
     try {
-        const users = await pool.query('SELECT * FROM users')
+        const users = await pool.query('SELECT * FROM user')
         return users[0] 
     } catch {
         res.status(500).send()
@@ -21,28 +21,18 @@ export const addUser = async (req: any, res: any) => {
     try {
         const user = {
             rut: req.body.rut,
-            first_name: req.body.first_name,
+            name: req.body.name,
             last_name: req.body.last_name,
             password: await bcrypt.hash(req.body.password, 10),
             role: req.body.role
         }
 
-        pool.query('INSERT INTO users SET ?', [user])
+        await pool.query('INSERT INTO user SET ?', [user])
         res.status(201).send()
     } catch {
         res.status(500).send()
     }
 }
-
-// export const findUserByRut = (rut: string): SafeUser | undefined => {
-//     const user = users.find(u => u.rut === rut)
-//     if (user !== undefined) {
-//         const { password, ... userInfo } = user
-//         return userInfo
-//     }
-    
-//     return user
-// }
 
 export const verifyLogin = async (req: any, res: any) => {
     //TODO: Sanitizar parametros
@@ -65,16 +55,3 @@ export const verifyLogin = async (req: any, res: any) => {
         res.json( { error: "Invalid login details." } )
     }
 }
-
-// export const autenthicateToken = (req: any, res: any, next: any) => {
-//     const authHeader = req.headers['authorization']
-//     const token = authHeader && authHeader.split(' ')[1]
-
-//     if (token == null) return res.sendStatus(401)
-
-//     jwt.verify(token, ACCESS_TOKEN, (err: any, user: any) => {
-//         if (err) return res.sendStatus(403)
-//         req.user = user
-//         next()
-//     })
-// }

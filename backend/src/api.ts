@@ -2,6 +2,7 @@ import express from "express"
 
 import usersRouter from './routes/users'
 import authRouter from './routes/auth'
+import schoolRouter from './routes/school'
 
 const app = express()
 
@@ -19,6 +20,8 @@ app.use(function(_req, res, next) {
 app.use('/api/auth', authRouter)
 
 app.use('/api/users', usersRouter)
+
+app.use('/api/school', schoolRouter)
 
 
 
