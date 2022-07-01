@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Institution } from 'src/app/models/institution.model';
+import { AdminService } from 'src/app/services/admin-service/admin-service.service';
 
 @Component({
   selector: 'app-institutions',
@@ -7,31 +8,39 @@ import { Institution } from 'src/app/models/institution.model';
   styleUrls: ['./institutions.component.sass']
 })
 export class InstitutionsComponent implements OnInit {
-  public institutions: Institution[] = [];
+  institutions: Institution[] = [];
 
-  constructor() { 
-    this.institutions = [
-      {
-        id: 1,
-        name: "Colegio X",
-        admin_rut: "15.552.132-1",
-        admin_name: "Felipe Diaz"
-      },
-      {
-        id: 2,
-        name: "Colegio Y",
-        admin_rut: "10.375.514-K",
-        admin_name: "Roberto Sepulveda"
-      },
-      {
-        id: 3,
-        name: "Colegio Z",
-        admin_rut: "9.523.512-1",
-        admin_name: "Beatriz Gonzalez"
+  schools_per_page = 5;
+  
+  start: number = 0;
+  end: number = this.start + this.schools_per_page;
+  
+  currentPage: number = 1;
+  numberOfPages: number = 1;
+
+  constructor(
+    private adminService: AdminService
+  ) { 
+    this.adminService.getSchools()
+      .subscribe((data: any) => {
+        this.institutions = data[0]
+        this.numberOfPages = Math.ceil(this.institutions.length)
       }
-    ]
+    )
   }
 
   ngOnInit(): void {
+  }
+
+  advancePage() {
+    this.currentPage = this.currentPage + 1
+    this.start = (this.currentPage * this.schools_per_page) - this.schools_per_page
+    this.end = this.start + 5
+  }
+
+  backPage() {
+    this.currentPage = this.currentPage - 1
+    this.start = (this.currentPage * this.schools_per_page) - this.schools_per_page
+    this.end = this.start + 5
   }
 }

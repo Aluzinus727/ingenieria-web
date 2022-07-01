@@ -1,5 +1,5 @@
 import express from 'express'
-import { addUser, getUsers, verifyLogin } from '../services/usersService'
+import { addUser, getUsers, getUsersByPage, verifyLogin } from '../services/usersService'
 
 const router = express.Router()
 
@@ -17,28 +17,17 @@ router.get('/', async (req, res) => {
     })
 })
 
+router.get('/:page', async (req, res) => {
+    if (req.params.page) {
+        const page: number = +req.params.page
+        await getUsersByPage(req, res, page)
+    } else {
+        res.status(500).send()
+    }
+})
+
 router.post('/', async (req, res) => {
     await addUser(req, res)
 })
-
-// router.get('/:rut', (req, res) => {
-//     const user = userServices.findUserByRut(req.params.rut)
-
-//     return (user !== undefined) ? res.json(user) : res.sendStatus(404)
-// })
-
-// router.post('/', (req, res) => {
-//     const { rut, first_name, last_name, role, password } = req.body
-
-//     const newUser = userServices.addUser({
-//         rut,
-//         first_name,
-//         last_name,
-//         role,
-//         password
-//     })
-
-//     res.send(newUser)
-// })
 
 export default router

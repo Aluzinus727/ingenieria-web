@@ -1,6 +1,29 @@
 import { pool } from "../database"
 import { User } from "../types"
 
+// export const getSchoolsByPage = async(_res: any, res: any, page: number) => {
+//     const schools_per_page = 3
+//     const offset = (schools_per_page * page) - schools_per_page
+
+//     try {
+//         const users = await pool.query('SELECT school.name AS school_name, user.rut, user.name, user.last_name FROM school LEFT JOIN user ON school.director_rut = user.rut LIMIT ? OFFSET ?', [schools_per_page, offset])
+//         console.log(users, schools_per_page, offset)
+//         res.status(200).send(users)
+//     } catch {
+//         res.status(401).send()
+//     }
+// }
+
+export const getSchools = async(_res: any, res: any) => {
+    try {
+        const users = await pool.query('SELECT school.name AS school_name, user.rut, user.name, user.last_name FROM school LEFT JOIN user ON school.director_rut = user.rut')
+        console.log(users)
+        res.status(200).send(users)
+    } catch {
+        res.status(401).send()
+     }
+    }
+
 export const addSchool = async (req: any, res: any) => {
     try {
         const school = {

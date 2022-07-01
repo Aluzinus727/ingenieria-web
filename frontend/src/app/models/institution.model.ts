@@ -1,6 +1,6 @@
 export interface Institution {
-    id: number;
+    school_name: string;
+    rut: string;
     name: string;
-    admin_rut: string;
-    admin_name: string;
+    last_name: string
   };

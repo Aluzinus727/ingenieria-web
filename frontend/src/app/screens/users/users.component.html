@@ -15,24 +15,39 @@
                     <th scope="col">#</th>
                     <th scope="col">RUT</th>
                     <th scope="col">Nombre</th>
-                    <th scope="col">Establecimiento</th>
+                    <th scope="col">Rol de usuario</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <th scope="row">1</th>
-                    <td>21.562.132-1</td>
-                    <td>Macarena Toledo</td>
-                    <td>Colegio X</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">2</th>
-                    <td>20.754.514-K</td>
-                    <td>Marcelo Ibacache</td>
-                    <td>Colegio X</td>
+                  <tr *ngFor="let user of users | slice:start:end; let i = index">
+                    <th scope="row">{{start + i + 1}}</th>
+                    <td>{{user.rut}}</td>
+                    <td>{{user.name}} {{user.last_name}}</td>
+                    <td>{{user.role}}</td>
                   </tr>
                 </tbody>
               </table>
+
+              <nav aria-label="...">
+                <ul class="pagination">
+                  <li [ngClass]="currentPage === 1 ? 'disabled' : ''" class="page-item">
+                    <button class="page-link" href="#" aria-label="Previous" (click)="backPage()">
+                      <span aria-hidden="true">&laquo;</span>
+                    </button>
+                  </li>
+                  <li class="page-item active">
+                    <button class="page-link">
+                      {{currentPage}}
+                    </button>
+                  </li>
+                  <li class="page-item">
+                    <li [ngClass]="currentPage === numberOfPages ? 'disabled' : ''" class="page-item">
+                      <button class="page-link" href="#" aria-label="Next" (click)="advancePage()">
+                        <span aria-hidden="true">&raquo;</span>
+                      </button>
+                  </li>
+                </ul>
+              </nav>
         </div>
     </div>
 </div>

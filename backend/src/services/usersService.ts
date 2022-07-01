@@ -9,10 +9,22 @@ const ACCESS_TOKEN = '46899820d7d4ecc1fdddd2e15721734dbbf6a28faaec0bc565c8a7530d
 export const getUsers = async (_req: any, res: any) => {
     // TODO: Verificar jwt
     try {
-        const users = await pool.query('SELECT * FROM user')
+        const users = await pool.query('SELECT * FROM user ORDER BY role ASC')
         return users[0] 
     } catch {
         res.status(500).send()
+    }
+}
+
+export const getUsersByPage = async(_res: any, res: any, page: number) => {
+    const users_per_page = 3
+    const offset = (users_per_page * page) - users_per_page
+
+    try {
+        const users = await pool.query('SELECT * FROM user LIMIT ? OFFSET ?', [users_per_page, offset])
+        res.status(200).send(users)
+    } catch {
+        res.status(401).send()
     }
 }
 
