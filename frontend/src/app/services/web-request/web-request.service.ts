@@ -17,6 +17,16 @@ export class WebRequestService {
   }
 
   post(url: string, payload: Object) {
+    console.log(`${this.API_URL}/${url}`, payload)
     return this.http.post(`${this.API_URL}/${url}`, payload)
+  }
+
+  put(url: string, payload: Object) {
+    console.log(`${this.API_URL}/${url}`, payload)
+    return this.http.put(`${this.API_URL}/${url}`, payload)
+  }
+
+  delete(url: string) {
+    return this.http.delete(`${this.API_URL}/${url}`)
   }
 }

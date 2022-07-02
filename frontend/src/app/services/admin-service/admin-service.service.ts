@@ -15,4 +15,16 @@ export class AdminService {
   getSchools() {
     return this.webRequest.get('school')
   }
+
+  addSchool(schoolName: string, adminRut: string) {
+    return this.webRequest.put('school', { "name": schoolName, "director": adminRut })
+  }
+
+  removeSchool(schoolName: string) {
+    return this.webRequest.delete(`school/${schoolName}`)
+  }
+
+  modifySchool(schoolName: string, adminRut: string) {
+    return this.webRequest.post('school', { "name": schoolName, "director": adminRut } )
+  }
 }

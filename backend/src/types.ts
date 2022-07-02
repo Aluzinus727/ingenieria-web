@@ -11,7 +11,7 @@ export enum Role {
 //     rut: string,
 //     first_name: string,
 //     last_name: string,
-//     role: Role.Admin,
+//     role: Role,
 //     password: string
 // }
 

@@ -12,7 +12,7 @@ export const getUsers = async (_req: any, res: any) => {
         const users = await pool.query('SELECT * FROM user ORDER BY role ASC')
         return users[0] 
     } catch {
-        res.status(500).send()
+        res.status(401).send()
     }
 }
 

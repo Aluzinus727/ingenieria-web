@@ -3,11 +3,11 @@
         <div class="col-3">
             <app-sidebar-admin></app-sidebar-admin>
         </div>
-        <div class="col-9 align-self-center">
+        <div class="col-9 position-relative">
             <div class="container col-6 offset-6">
-                <button type="button" class="btn btn-success m-2 overflow-hidden">Agregar</button>
-                <button type="button" class="btn btn-warning m-2 overflow-hidden">Modificar</button>
-                <button type="button" class="btn btn-danger m-2 overflow-hidden">Eliminar</button>
+                <button type="button" class="btn btn-success m-2 overflow-hidden" data-bs-toggle="modal" data-bs-target="#add">Agregar</button>
+                <button type="button" class="btn btn-warning m-2 overflow-hidden" data-bs-toggle="modal" data-bs-target="#modify">Modificar</button>
+                <button type="button" class="btn btn-danger m-2 overflow-hidden" (click)="deleteInstitution()">Eliminar</button>
             </div>
             <table class="table">
                 <thead>
@@ -19,7 +19,10 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let institution of institutions | slice:start:end; let i = index">
+                  <tr *ngFor="let institution of institutions | slice:start:end; let i = index"
+                      (click)="selectInstitution(institution)"
+                      [ngClass]="selectedInstitution === institution ? 'table-secondary' : ''"
+                  >
                     <th scope="row">{{i + 1}}</th>
                     <td>{{institution.school_name}}</td>
                     <td>{{institution.rut}}</td>
@@ -50,4 +53,62 @@
               </nav>
         </div>
     </div>
+
+    <div class="modal fade" id="add" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Agregar institución</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">Nombre del colegio:</label>
+                <input [(ngModel)]="addName" type="text" name="school-name" class="form-control">
+              </div>
+              <div class="mb-3">
+                <label for="recipient-name" class="col-form-label">RUT del administrador:</label>
+                <input [(ngModel)]="addRutAdmin" type="text" name="rutAdmin" class="form-control">
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button type="button" class="btn btn-primary" (click)="addInstitution(addName, addRutAdmin)">Agregar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div class="modal fade" id="modify">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modificar institución</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <strong>IMPORTANTE</strong><p>Asegurese que el RUT del administrador nuevo pertenezca a una cuenta ya creada de administrador local.</p>
+          <div id="modifyDangerAlert" class="alert alert-danger" role="alert" hidden>
+            Ambos campos deben tener un valor definido.
+          </div>
+          <form>
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Nombre de la institución:</label>
+              <input [attr.value]="selectedInstitution !== null ? selectedInstitution.school_name : ''" name="modifyN" type="text" class="form-control" id="recipient-name" readonly>
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">RUT administrador de la institución:</label>
+              <input [(ngModel)]="modifyRut" type="text" name="modifyRUT" class="form-control" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" (click)="modifyInstitution(modifyRut)">Modificar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

@@ -20,8 +20,10 @@ export const verifyRole = (req: any, res: any) => {
         const userInfo: any = jwt.decode(token)
         console.log(userInfo, role)
         if (userInfo && userInfo['role'] === role)  {
+            console.log("true")
             res.send( { auth: true } )
         } else {
+            console.log("false")
             res.send( { auth: false } )
         }
     } else {

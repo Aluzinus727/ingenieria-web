@@ -18,6 +18,12 @@ export class UsersComponent implements OnInit {
   currentPage: number = 1;
   numberOfPages: number = 1;
 
+  // User a añadir
+  add_rut: string = ''
+  add_name: string = ''
+  add_last_name: string = ''
+  add_rol: string = ''
+
   constructor(
     private adminService: AdminService
   ) { 

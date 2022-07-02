@@ -1,5 +1,5 @@
 import express from 'express'
-import { addSchool, getSchools } from '../services/schoolService'
+import { addSchool, getSchools, deleteSchool, modifySchool } from '../services/schoolService'
 
 const router = express.Router()
 
@@ -11,13 +11,12 @@ router.get('/', async (req, res) => {
     await getSchools(req, res)
 })
 
-// router.get('/:page', async (req, res) => {
-//     if (req.params.page) {
-//         const page: number = +req.params.page
-//         await getSchoolsByPage(req, res, page)
-//     } else {
-//         res.status(500).send()
-//     }
-// })
+router.delete('/:schoolName', async (req, res) => {
+    await deleteSchool(req, res)
+})
+
+router.post('/', async (req, res) => {
+    await modifySchool(req, res)
+})
 
 export default router
