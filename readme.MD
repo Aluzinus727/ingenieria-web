@@ -7,6 +7,8 @@ Proyecto para la asignatura de Ingeniería Web ICI4240-1 de Angelo Alvear Tapia.
 
 Para el correcto functionamiento de la aplicación se necesitar inicialiar tanto el frontend como el backend. Para inicializar el frontend en Angular se debe escribir ng serve en la terminal desde el directorio de frontend, mientras que para lanzar el servidor de backend se debe escribir en la terminal npm run dev, desde el directorio backend. 
 
+La base de datos del proyecto debería instalarse localmente con todos sus registros al momento de ejecutar el backend desde la consola. Si por algún motivo esto no ocurre, revisar que las credenciales sean correctas en el archivo .env del backend, ya que por default el host es localhost, el user root y no lleva contraseña.
+
 # 1.1 Credenciales dentro de la aplicación
 
 Con estas credenciales se podrá hacer ingreso a la aplicación mediante el login. Cabe destacar que no funcionará si el backend no está activo.
