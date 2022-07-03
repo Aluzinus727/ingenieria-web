@@ -58,3 +58,12 @@ export const addSchool = async (req: any, res: any) => {
         res.status(500).send({"error": "error"})
     }
 }
+
+export const getFirstTen = async (_req: any, res: any) => {
+    const result = await pool.query("SELECT mydb.school.name, mydb.school.director_rut, mydb.user.name AS first_name, mydb.user.last_name FROM mydb.school LEFT JOIN mydb.user ON mydb.school.director_rut = mydb.user.rut LIMIT 10")
+
+    if (result && result[0]) {
+        console.log(result[0])
+        res.status(200).send(result[0])
+    }
+}

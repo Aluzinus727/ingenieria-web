@@ -3,5 +3,53 @@
         <div class="col-3">
             <app-sidebar-admin></app-sidebar-admin>
         </div>
+        <div class="col-9 position-relative">
+            <h1 class="mt-5">Vista general</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Colegio</th>
+                        <th scope="col">RUT administrador</th>
+                        <th scope="col">Nombre administrador</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let school of schools; let i = index">
+                        <th scope="row">{{i+1}}</th> 
+                        <td>{{school['name']}}</td>
+                        <td>{{school['director_rut']}}</td>
+                        <td>{{school['first_name']}} {{school['last_name']}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>2. Usuarios</h2>
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">RUT usuario</th>
+                        <th scope="col">Nombre usuarior</th>
+                        <th scope="col">Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of users; let i = index">
+                        <th scope="row">{{i+1}}</th> 
+                        <td>{{user['rut']}}</td>
+                        <td>{{user['name']}} {{user['last_name']}}</td>
+                        <td>{{user['role']}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="display-7"> 
+                Esta información es solo una vista general de los colegios y usuarios que muestra un máximo de 10 registros en el sistema, si
+                usted desea añadir, modificar o eliminar alguno de estos registros, por favor use las secciones pertinentes de 
+                <a href="/admin/institutions">instituciones</a> y <a href="/admin/users">usuarios</a>
+            </p>
+        </div>
     </div>
 </div>

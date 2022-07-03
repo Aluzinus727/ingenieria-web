@@ -27,4 +27,12 @@ export class AdminService {
   modifySchool(schoolName: string, adminRut: string) {
     return this.webRequest.post('school', { "name": schoolName, "director": adminRut } )
   }
+
+  getTopUsers() {
+    return this.webRequest.get('users/top')
+  }
+
+  getTopSchools() {
+    return this.webRequest.get('school/top')
+  }
 }

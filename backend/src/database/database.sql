@@ -175,29 +175,29 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
 -- Cuentas de prueba
-INSERT INTO user VALUES ('19776112', 'Angelo', 'Alvear', '$2b$10$YNMVEHQ/PZkiSoISCrpszufsbipm6YEdX1.jwpk2mjYMOzZekG7oi', '0');
-INSERT INTO user VALUES ('12345678', 'Michelle', 'Blanco', '$2b$10$TkqQIWfWZxjYH02HyH8LfOK8unsMtuUxtBbg4/m1MrMwguXUJP2FG', '1');
-INSERT INTO user VALUES ('20100200', 'Lucio', 'Roldan', '$2b$10$Nui/0lKNkIA6R12f6FZh3.KBvGS5xSufwGi62SvEUe2Dx5J1vljJa', '2');
-INSERT INTO user VALUES ('17200300', 'Abel', 'Orozco', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
+INSERT IGNORE INTO user VALUES ('19776112', 'Angelo', 'Alvear', '$2b$10$YNMVEHQ/PZkiSoISCrpszufsbipm6YEdX1.jwpk2mjYMOzZekG7oi', '0');
+INSERT IGNORE INTO user VALUES ('12345678', 'Michelle', 'Blanco', '$2b$10$TkqQIWfWZxjYH02HyH8LfOK8unsMtuUxtBbg4/m1MrMwguXUJP2FG', '1');
+INSERT IGNORE INTO user VALUES ('20100200', 'Lucio', 'Roldan', '$2b$10$Nui/0lKNkIA6R12f6FZh3.KBvGS5xSufwGi62SvEUe2Dx5J1vljJa', '2');
+INSERT IGNORE INTO user VALUES ('17200300', 'Abel', 'Orozco', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
 
 -- Profesores
-INSERT INTO user VALUES ('19669630', 'Rafael', 'Fuentes', '$2b$10$sYalwHFiltH27vEwW9GwSufHayygbi8QXNQMALoJSlj0ijojDub1C', '2');
-INSERT INTO user VALUES ('13388974', 'Olga', 'Santos', '$2b$10$hMhrFRC/Foh.ovi3/YB0fepiaqxvfTgryC6O96B5ZHOFMM.m1RKwy', '2');
-INSERT INTO user VALUES ('13998433', 'Noelia', 'Herrera', '$2b$10$0/4en7NBqZHaX17gr.v/7OFNeHap5uv1SnFKPKbjObj5eEQPIcuae', '2');
-INSERT INTO user VALUES ('19516133', 'Francisca', 'Aguilar', '$2b$10$yTcG1vZ42uWn8ljj8Y9uH.1Uu1YVU5yd8vDvUe6dyjN.sNKjbFfE2', '2');
+INSERT IGNORE INTO user VALUES ('19669630', 'Rafael', 'Fuentes', '$2b$10$sYalwHFiltH27vEwW9GwSufHayygbi8QXNQMALoJSlj0ijojDub1C', '2');
+INSERT IGNORE INTO user VALUES ('13388974', 'Olga', 'Santos', '$2b$10$hMhrFRC/Foh.ovi3/YB0fepiaqxvfTgryC6O96B5ZHOFMM.m1RKwy', '2');
+INSERT IGNORE INTO user VALUES ('13998433', 'Noelia', 'Herrera', '$2b$10$0/4en7NBqZHaX17gr.v/7OFNeHap5uv1SnFKPKbjObj5eEQPIcuae', '2');
+INSERT IGNORE INTO user VALUES ('19516133', 'Francisca', 'Aguilar', '$2b$10$yTcG1vZ42uWn8ljj8Y9uH.1Uu1YVU5yd8vDvUe6dyjN.sNKjbFfE2', '2');
 
 -- Estudiantes
-INSERT INTO user VALUES ('10100200', 'Rodrigo', 'Maturana', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
-INSERT INTO user VALUES ('12312311', 'Camila', 'Figueroa', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
-INSERT INTO user VALUES ('20123321', 'Rosa', 'Moya', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
+INSERT IGNORE INTO user VALUES ('10100200', 'Rodrigo', 'Maturana', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
+INSERT IGNORE INTO user VALUES ('12312311', 'Camila', 'Figueroa', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
+INSERT IGNORE INTO user VALUES ('20123321', 'Rosa', 'Moya', '$2b$10$t1Z864AgteKdEpIA3tPlCOvAo3xV6gABfvj6Z/uNIxruEShk5CSG.', '3');
 
 -- Administradores de colegios
-INSERT INTO user VALUES ('11123123', 'Vicente', 'Cuadra', '$2b$10$TkqQIWfWZxjYH02HyH8LfOK8unsMtuUxtBbg4/m1MrMwguXUJP2FG', '1');
+INSERT IGNORE INTO user VALUES ('11123123', 'Vicente', 'Cuadra', '$2b$10$TkqQIWfWZxjYH02HyH8LfOK8unsMtuUxtBbg4/m1MrMwguXUJP2FG', '1');
 
 -- Escuela
-INSERT INTO school VALUES ('Colegio Presbiteriano', '12345678');
-INSERT INTO school VALUES ('Liceo Sebastián Piñera', '11123123');
+INSERT IGNORE INTO school VALUES ('Colegio Presbiteriano', '12345678');
+INSERT IGNORE INTO school VALUES ('Liceo Sebastián Piñera', '11123123');
 
-INSERT INTO student VALUES ('10100200', '2B', 'Colegio Presbiteriano');
-INSERT INTO student VALUES ('12312311', '3M', 'Colegio Presbiteriano');
-INSERT INTO student VALUES ('20123321', '4M', 'Liceo Sebastián Piñera');
+INSERT IGNORE INTO student VALUES ('10100200', '2B', 'Colegio Presbiteriano');
+INSERT IGNORE INTO student VALUES ('12312311', '3M', 'Colegio Presbiteriano');
+INSERT IGNORE INTO student VALUES ('20123321', '4M', 'Liceo Sebastián Piñera');

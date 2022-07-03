@@ -1,5 +1,5 @@
 import express from 'express'
-import { addUser, getUsers, verifyLogin } from '../services/usersService'
+import { addUser, getUsers, verifyLogin, getFirstTen } from '../services/usersService'
 
 const router = express.Router()
 
@@ -20,3 +20,7 @@ router.post('/', async (req, res) => {
 })
 
 export default router
+
+router.get('/top', async (req, res) => {
+    await getFirstTen(req, res)
+})

@@ -67,3 +67,15 @@ export const verifyLogin = async (req: any, res: any) => {
         res.json( { error: "Invalid login details." } )
     }
 }
+
+export const getFirstTen = async (_req: any, res: any) => {
+    try {
+        const result = await pool.query("SELECT rut, name, last_name, role FROM user ORDER BY role asc LIMIT 10")
+
+        if (result && result[0]) {
+            res.status(200).send(result[0])
+        }
+    } catch(e) {
+        res.status(500).send(e)
+    }
+}

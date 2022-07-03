@@ -14,3 +14,4 @@ export const pool = mysql2.createPool({
 })
 
 pool.query(sql)
+pool.query('use mydb;')
