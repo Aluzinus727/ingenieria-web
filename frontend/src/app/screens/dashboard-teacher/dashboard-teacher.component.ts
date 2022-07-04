@@ -31,7 +31,7 @@ export class DashboardTeacherComponent implements OnInit {
     const tokenData: any = jwt_decode(this.cookieService.get('accessToken'))
 
     if (tokenData) {
-      this.props.first_name = tokenData['first_name']
+      this.props.first_name = tokenData['name']
       this.props.last_name = tokenData['last_name']
     }
 

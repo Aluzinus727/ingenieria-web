@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sidebar-admin',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarAdminComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private cookieService: CookieService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  deleteCookies() {
+    this.cookieService.delete('accessToken', '/')
   }
 
 }

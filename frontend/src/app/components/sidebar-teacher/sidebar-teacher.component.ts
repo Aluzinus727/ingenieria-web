@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-sidebar-teacher',
@@ -13,9 +14,15 @@ export class SidebarTeacherComponent implements OnInit {
     last_name: '',
   }
 
-  constructor() { }
+  constructor(
+    private cookieService: CookieService,
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  deleteCookies() {
+    this.cookieService.delete('accessToken', '/')
   }
 
 }
